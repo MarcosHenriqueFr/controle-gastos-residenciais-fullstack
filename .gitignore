@@ -1,0 +1,117 @@
+# ================================
+# .NET / C#
+# ================================
+
+# Build output
+**/bin/
+**/obj/
+
+# User-specific files
+*.user
+*.suo
+*.rsuser
+
+# Visual Studio cache
+.vs/
+
+# Generated files
+*.dll
+*.exe
+*.pdb
+*.cache
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+
+# Test results
+TestResults/
+*.trx
+
+
+# ================================
+# Rider / JetBrains IDE
+# ================================
+
+.idea/
+
+*.iml
+
+# Rider generated files
+*.sln.iml
+
+
+# ================================
+# VS Code
+# ================================
+
+.vscode/
+
+# Keep workspace recommendations if desired
+!.vscode/extensions.json
+!.vscode/settings.json
+
+
+# ================================
+# Node / React / Vite
+# ================================
+
+# Dependencies
+node_modules/
+
+# Production build
+dist/
+
+# Vite cache
+.vite/
+
+
+# ================================
+# Environment Variables
+# ================================
+
+.env
+.env.*
+!.env.example
+
+
+# ================================
+# Logs
+# ================================
+
+*.log
+logs/
+
+
+# ================================
+# SQLite
+# ================================
+
+*.db
+*.sqlite
+*.sqlite3
+
+
+# ================================
+# OS Generated Files
+# ================================
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+
+# ================================
+# Temporary files
+# ================================
+
+*.tmp
+*.temp
+*.bak
