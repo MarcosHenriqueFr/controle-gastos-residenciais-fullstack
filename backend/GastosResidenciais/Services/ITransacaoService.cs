@@ -5,7 +5,7 @@ namespace GastosResidenciais.Services;
 
 public interface ITransacaoService
 {
-    TransacaoResponse Criar(CriarTransacaoRequest transacao);
-    IEnumerable<Transacao> ListarTodasTransacoes();
-    TransacaoResponse ObterTransacaoPorId(Guid id);
+    Task<TransacaoResponse> CriarAsync(CriarTransacaoRequest request);
+    Task<IEnumerable<TransacaoResponse>> ListarTodosAsync();
+    Task<TransacaoResponse> ObterPorIdAsync(Guid id);
 }
