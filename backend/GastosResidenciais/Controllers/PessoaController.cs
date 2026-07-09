@@ -9,17 +9,17 @@ namespace GastosResidenciais.Controllers;
 [Route("api/[controller]")]
 public class PessoaController : ControllerBase
 {
-    private readonly IPessoaService service;
+    private readonly IPessoaService _service;
 
     public PessoaController(IPessoaService service)
     {
-        this.service = service;
+        _service = service;
     }
 
     [HttpPost]
     public IActionResult CadastrarPessoa([FromBody] CriarPessoaRequest request)
     {
-        var response = service.Cadastrar(request);
+        var response = _service.Cadastrar(request);
         return StatusCode(StatusCodes.Status201Created, response);
     }
 }
