@@ -95,7 +95,7 @@ public class PessoaController : ControllerBase
     /// <returns>Coleção com as transações financeiras associadas à pessoa.</returns>
     /// <response code="200">Lista de transações retornada com sucesso (pode ser vazia).</response>
     /// <response code="404">Nenhuma pessoa foi encontrada com o id informado.</response>
-    [HttpGet("{id:guid}/transacaos")]
+    [HttpGet("{id:guid}/transacoes")]
     [ProducesResponseType(typeof(IEnumerable<TransacaoResponse>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ErroResponse), StatusCodes.Status404NotFound)]
     public async Task<IActionResult> ObterTransacoesPorPessoa(Guid id)
