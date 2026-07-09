@@ -6,9 +6,13 @@ namespace GastosResidenciais.Services;
 
 public interface IPessoaService
 {
-    PessoaResponse Cadastrar(CriarPessoaRequest pessoa);
-    IEnumerable<PessoaResponse> ListarPessoas();
-    PessoaResponse ObterPessoaPorId(Guid id);
-    IEnumerable<TransacaoResponse> ListarTransacoesPorPessoa(Guid id);
-    void ExcluirPessoa(Guid id);
+    Task<PessoaResponse> CriarAsync(CriarPessoaRequest request);
+
+    Task<IEnumerable<PessoaResponse>> ObterTodasAsync();
+
+    Task<PessoaResponse> ObterPorIdAsync(Guid id);
+
+    Task<IEnumerable<TransacaoResponse>> ObterTransacoesPorPessoaAsync(Guid id);
+
+    Task RemoverAsync(Guid id);
 }
