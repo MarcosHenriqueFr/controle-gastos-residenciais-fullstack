@@ -1,8 +1,12 @@
 
 using GastosResidenciais.Data;
+using GastosResidenciais.Exceptions;
+using GastosResidenciais.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers();
+builder.Services.AddScoped<IPessoaService, PessoaService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -17,5 +21,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseMiddleware<GlobalExceptionHandler>();    
 app.UseAuthorization();
+app.MapControllers();
+
 app.Run();
