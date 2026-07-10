@@ -12,7 +12,7 @@ namespace GastosResidenciais.Controllers;
 /// global de exceções, então os métodos aqui só se preocupam com o fluxo de sucesso.
 /// </summary>
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/transacao")]
 [Produces("application/json")]
 public class TransacaoController : ControllerBase
 {
