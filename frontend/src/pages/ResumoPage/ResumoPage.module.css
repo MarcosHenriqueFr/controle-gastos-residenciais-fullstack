@@ -1,0 +1,26 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #eee;
+}
+
+.table tfoot td {
+  border-top: 2px solid #333;
+  border-bottom: none;
+}
+
+.positivo {
+  color: #2f6f4f;
+  font-weight: bold;
+}
+
+.negativo {
+  color: #b00020;
+  font-weight: bold;
+}
