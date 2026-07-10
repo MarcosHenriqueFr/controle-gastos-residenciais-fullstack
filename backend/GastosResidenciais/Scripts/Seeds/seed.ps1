@@ -8,6 +8,6 @@ Write-Host "Aplicando migrations..."
 dotnet ef database update
 
 Write-Host "Populando banco com dados de exemplo..."
-Get-Content -Encoding UTF8 -Raw Scripts/Seed/seed.sql | sqlite3 gastos.db
+Get-Content -Encoding UTF8 -Raw Scripts/Seeds/seed.sql | sqlite3 app.db
 
 Write-Host "Banco populado com sucesso!"
