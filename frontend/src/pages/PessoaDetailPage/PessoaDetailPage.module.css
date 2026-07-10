@@ -1,0 +1,21 @@
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #eee;
+}
+
+.receita {
+  color: #2f6f4f;
+  font-weight: bold;
+}
+
+.despesa {
+  color: #b00020;
+  font-weight: bold;
+}
