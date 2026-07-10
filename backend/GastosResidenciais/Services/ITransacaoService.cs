@@ -1,5 +1,4 @@
 ﻿using GastosResidenciais.Dtos.Transacao;
-using GastosResidenciais.Models;
 
 namespace GastosResidenciais.Services;
 
