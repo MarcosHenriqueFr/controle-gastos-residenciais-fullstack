@@ -1,0 +1,40 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: system-ui, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  color: #2f6f4f;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.link {
+  text-decoration: none;
+  color: #555;
+}
+
+.activeLink {
+  text-decoration: none;
+  color: #2f6f4f;
+  font-weight: bold;
+}
+
+.content {
+  padding-bottom: 2rem;
+}
