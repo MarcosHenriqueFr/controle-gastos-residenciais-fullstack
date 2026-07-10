@@ -2,7 +2,7 @@
 using System.Text.Json;
 using GastosResidenciais.Dtos.Erro;
 
-namespace GastosResidenciais.Middlewares;
+namespace GastosResidenciais.Exceptions;
 
 /// <summary>
 /// Captura qualquer exceção não tratada que ocorra durante o processamento
@@ -10,14 +10,14 @@ namespace GastosResidenciais.Middlewares;
 /// evitando que cada controller precise repetir try/catch para tratar erros
 /// de negócio como "recurso não encontrado".
 /// </summary>
-public class GlobalExceptionHandlerMiddleware
+public class GlobalExceptionHandler
 {
     private readonly RequestDelegate _next;
-    private readonly ILogger<GlobalExceptionHandlerMiddleware> _logger;
+    private readonly ILogger<GlobalExceptionHandler> _logger;
 
-    public GlobalExceptionHandlerMiddleware(
+    public GlobalExceptionHandler(
         RequestDelegate next,
-        ILogger<GlobalExceptionHandlerMiddleware> logger)
+        ILogger<GlobalExceptionHandler> logger)
     {
         _next = next;
         _logger = logger;
