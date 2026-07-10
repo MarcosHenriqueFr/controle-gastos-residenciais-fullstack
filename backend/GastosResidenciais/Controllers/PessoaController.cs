@@ -13,7 +13,7 @@ namespace GastosResidenciais.Controllers;
 /// então os métodos aqui só se preocupam com o fluxo de sucesso.
 /// </summary>
 [ApiController]
-[Route("api/pessoa")]
+[Route("api/[controller]")]
 [Produces("application/json")]
 public class PessoaController : ControllerBase
 {

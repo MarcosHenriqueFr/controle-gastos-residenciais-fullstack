@@ -4,5 +4,5 @@ namespace GastosResidenciais.Services;
 
 public interface IResumoService
 {
-    ResumoResponse Resumir();
+    Task<ResumoResponse> Resumir();
 }
