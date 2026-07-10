@@ -1,0 +1,60 @@
+﻿-- seed.sql
+-- Popula o banco com pessoas e transações de exemplo, respeitando
+-- a regra de que menores de 18 anos só possuem despesas.
+-- Idempotente: só insere se a tabela Pessoas estiver vazia.
+
+BEGIN TRANSACTION;
+
+-- Marcos (28 anos) - maior de idade, receita e despesa
+INSERT INTO Pessoas (Id, Nome, Idade)
+SELECT '11111111-1111-1111-1111-111111111111', 'Marcos', 28
+    WHERE NOT EXISTS (SELECT 1 FROM Pessoas);
+
+INSERT INTO Transacoes (Id, Descricao, Valor, Tipo, PessoaId)
+SELECT 'a1111111-1111-1111-1111-111111111111', 'Salário', 5000, 1, '11111111-1111-1111-1111-111111111111'
+    WHERE EXISTS (SELECT 1 FROM Pessoas WHERE Id = '11111111-1111-1111-1111-111111111111');
+
+INSERT INTO Transacoes (Id, Descricao, Valor, Tipo, PessoaId)
+SELECT 'a1111111-1111-1111-1111-111111111112', 'Aluguel', 1500, 0, '11111111-1111-1111-1111-111111111111'
+    WHERE EXISTS (SELECT 1 FROM Pessoas WHERE Id = '11111111-1111-1111-1111-111111111111');
+
+INSERT INTO Transacoes (Id, Descricao, Valor, Tipo, PessoaId)
+SELECT 'a1111111-1111-1111-1111-111111111113', 'Supermercado', 600, 0, '11111111-1111-1111-1111-111111111111'
+    WHERE EXISTS (SELECT 1 FROM Pessoas WHERE Id = '11111111-1111-1111-1111-111111111111');
+
+-- Ana (34 anos) - maior de idade, receita e despesa
+INSERT INTO Pessoas (Id, Nome, Idade)
+SELECT '22222222-2222-2222-2222-222222222222', 'Ana', 34
+    WHERE NOT EXISTS (SELECT 1 FROM Pessoas WHERE Nome = 'Ana');
+
+INSERT INTO Transacoes (Id, Descricao, Valor, Tipo, PessoaId)
+SELECT 'a2222222-2222-2222-2222-222222222221', 'Freelance', 2200, 1, '22222222-2222-2222-2222-222222222222'
+    WHERE EXISTS (SELECT 1 FROM Pessoas WHERE Id = '22222222-2222-2222-2222-222222222222');
+
+INSERT INTO Transacoes (Id, Descricao, Valor, Tipo, PessoaId)
+SELECT 'a2222222-2222-2222-2222-222222222223', 'Conta de luz', 250, 0, '22222222-2222-2222-2222-222222222222'
+    WHERE EXISTS (SELECT 1 FROM Pessoas WHERE Id = '22222222-2222-2222-2222-222222222222');
+
+-- Joaquim (15 anos) - menor de idade, apenas despesas
+INSERT INTO Pessoas (Id, Nome, Idade)
+SELECT '33333333-3333-3333-3333-333333333333', 'Joaquim', 15
+    WHERE NOT EXISTS (SELECT 1 FROM Pessoas WHERE Nome = 'Joaquim');
+
+INSERT INTO Transacoes (Id, Descricao, Valor, Tipo, PessoaId)
+SELECT 'a3333333-3333-3333-3333-333333333331', 'Lanche na escola', 20, 0, '33333333-3333-3333-3333-333333333333'
+    WHERE EXISTS (SELECT 1 FROM Pessoas WHERE Id = '33333333-3333-3333-3333-333333333333');
+
+INSERT INTO Transacoes (Id, Descricao, Valor, Tipo, PessoaId)
+SELECT 'a3333333-3333-3333-3333-333333333332', 'Cinema', 45, 0, '33333333-3333-3333-3333-333333333333'
+    WHERE EXISTS (SELECT 1 FROM Pessoas WHERE Id = '33333333-3333-3333-3333-333333333333');
+
+-- Beatriz (17 anos) - menor de idade, apenas despesas
+INSERT INTO Pessoas (Id, Nome, Idade)
+SELECT '44444444-4444-4444-4444-444444444444', 'Beatriz', 17
+    WHERE NOT EXISTS (SELECT 1 FROM Pessoas WHERE Nome = 'Beatriz');
+
+INSERT INTO Transacoes (Id, Descricao, Valor, Tipo, PessoaId)
+SELECT 'a4444444-4444-4444-4444-444444444441', 'Roupas', 150, 0, '44444444-4444-4444-4444-444444444444'
+    WHERE EXISTS (SELECT 1 FROM Pessoas WHERE Id = '44444444-4444-4444-4444-444444444444');
+
+COMMIT;
